@@ -16,6 +16,6 @@ app.listen(PORT, () => {
     console.log('listening....');
 });
 
-mongoose.connect('mongodb+srv://Acapace:!Acuraitr62290@cluster0.cldlibi.mongodb.net/?retryWrites=true&w=majority', () =>{
+mongoose.connect('mongodb+srv://Acapace:!Acura123456@cluster0.cldlibi.mongodb.net/?retryWrites=true&w=majority', () =>{
     console.log('connected to mongo');
 })
