@@ -6,13 +6,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>New Parts Page</h1>
-        <form>
-            <input type="text" name="name" placeholder="name" /><br/>
-            <input type="text" name="amount" placeholder="amount"/><br/>
-            <input type="text" name="description" placeholder="description"/><br/>
-            <input type="submit" value="Submit" />
-        
+        <h1>New Inventory Page</h1>
+        <form action="/projectmgt" method="POST">
+            Task -or- Item:             <input type="text" name="name" placeholder="name" /><br/>
+            Work Done By -or- Vendor:   <input type="text" name="amount" placeholder="amount"/><br/>
+            Cost:                       <input type="text" name="description" placeholder="description"/><br/>
+            Time Frame:                 <input type="text" name="description" placeholder="description"/><br/>
+            Description:                <input type="text" name="description" placeholder="description"/><br/>
+            Bought:                     <input type="checkbox" name="readyToEat" /><br/>
+            Installed:                  <input type="checkbox" name="readyToEat" /><br/>
+                                        <input type="submit" value="Submit" />
         </form>
     </div>
 </body>

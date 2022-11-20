@@ -27,6 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 //     });
 // });
 
+app.get('/projectmgt/edit', (req, res) => {
+    res.render('edit.ejs');
+});
+
 
 
 //////INDEX ROUTE///MAIN PAGE///////
@@ -41,17 +45,29 @@ app.get('/projectmgt', (req, res) =>{
 
 
 
-/////// NEW ROUTE ///////
+/////// NEW ROUTE///STATIC ROUTE///////
 
-
-
-
-///////SHOW ROUTE : DYNAMIC ROUTE //////
-
-
-app.get('parts/:id', (req, res) => {
-    res.render('shows.ejs');
+app.get('/projectmgt/new', (req, res) =>{
+    res.render('new.ejs');
 });
+
+
+///////SHOW ROUTE///DYNAMIC ROUTE//////
+
+
+// app.get('/projectmgt/:id', (req, res) => {
+//     Projectmgt.findById(req, params.id, (error, foundTask) => {
+//         res.render('show.ejs', {
+//             tasks:foundTask
+//         });
+//     });
+// });
+
+
+app.get('/projectmgt/show', (req, res) =>{ 
+    res.render('show.ejs');
+});
+
 
 
 /////////POST 
