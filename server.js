@@ -55,28 +55,33 @@ app.get('/projectmgt/new', (req, res) =>{
 ///////SHOW ROUTE///DYNAMIC ROUTE//////
 
 
-// app.get('/projectmgt/:id', (req, res) => {
-//     Projectmgt.findById(req, params.id, (error, foundTask) => {
-//         res.render('show.ejs', {
-//             tasks:foundTask
-//         });
-//     });
-// });
-
-
-app.get('/projectmgt/show', (req, res) =>{ 
-    res.render('show.ejs');
+app.get('/projectmgt/:id', (req, res) => {
+    Projectmgt.findById(req, params.id, (error, foundTask) => {
+        res.render('show.ejs', {
+            tasks:foundTask
+        });
+    });
 });
+
+
+// app.get('/projectmgt/show', (req, res) =>{ 
+//     res.render('show.ejs');
+// });
 
 
 
 /////////POST 
 
-
-
-
-
-
+app.post('/projectmgt', (req, res) => {
+    if(req.body.readyForTask === "on") {
+        req.body.readyForTask = true;
+    } else {
+        req.body.readyForTask = false;
+    }
+    Projectmgt.create(req.body, (error, createTask) =>{
+        res.redirect('/projectmgt');
+    })
+})
 
 
 
