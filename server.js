@@ -1,12 +1,12 @@
 const express = require ('express');
 const mongoose = require('mongoose');
-
+const methodOverride = require('method-override');
 const Projectmgt= require('./models/projectmgtSchema.js');
 const app = express();
 
 // app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(methodOverride('_method'));
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,33 +16,37 @@ app.use(express.urlencoded({ extended: true }));
 //     res.send('hello world');
 // });
 
+/////EDIT ROUTE////SECOND PART/////
+
+// app.put('projectmgt/:id', (req, res) => {
+//     if(req.body.bought ===)
+// })
+
+
 
 /////EDIT ROUTE//////
 
-// app.get('projectmgt/:id/edit', (req, res) =>{
-//     Projectmgt.findById(req.params.id, (err, foundPart)=>{
-//         res.render('edit.ejs',{
-//             part: foundPart
-//         });
-//     });
-// });
-
-app.get('/projectmgt/edit', (req, res) => {
-    res.render('edit.ejs');
-});
-
-
-
-//////INDEX ROUTE///MAIN PAGE///////
-
-app.get('/projectmgt', (req, res) =>{
-    Projectmgt.find({}, (error, allTasks) =>{
-        res.render('index.ejs', {
-            tasks: allTasks
+app.get('projectmgt/:id/edit', (req, res) =>{
+    Projectmgt.findById(req.params.id, (err, foundTask)=>{
+        res.render('edit.ejs',{
+            tasks: foundTask
         });
     });
 });
 
+// app.get('/projectmgt/edit', (req, res) => {
+//     res.render('edit.ejs');
+// });
+
+
+///////DELETE ROUTE//////////
+
+
+app.delete('/projectmgt/:id', (req, res) => {
+    Projectmgt.findByIdAndRemove(req.params.id, (error, data) => {
+        res.redirect('/projectmgt')
+    });
+});
 
 
 /////// NEW ROUTE///STATIC ROUTE///////
@@ -53,7 +57,33 @@ app.get('/projectmgt/new', (req, res) =>{
 
 
 
+///////SHOW ROUTE///DYNAMIC ROUTE//////
 
+
+app.get('/projectmgt/:id', (req, res) => {
+    Projectmgt.findById(req, params.id, (error, foundTask) => {
+        res.render('show.ejs', {
+            tasks:foundTask
+        });
+    });
+});
+
+
+// app.get('/projectmgt/show', (req, res) =>{ 
+//     res.render('show.ejs');
+// });
+
+
+//////INDEX ROUTE///MAIN PAGE///////
+
+app.get('/projectmgt', (req, res) =>{
+    Projectmgt.find({}, (error, alltasks) =>{
+        console.log(alltasks);
+        res.render('index.ejs', {
+            tasks: alltasks
+        });
+    });
+});
 
 
 
@@ -61,15 +91,17 @@ app.get('/projectmgt/new', (req, res) =>{
 /////////POST 
 
 app.post('/projectmgt', (req, res) => {
-    if(req.body.readyForTask === "on") {
-        req.body.readyForTask = true;
+    if(req.body.bought === "on") {
+        req.body.bought = true;
     } else {
-        req.body.readyForTask = false;
+        req.body.bought = false;
     }
-    Projectmgt.create(req.body, (error, createTask) =>{
+    Projectmgt.create(req.body, (error, createdTask) =>{
         res.redirect('/projectmgt');
     })
 })
+
+
 
 
 
@@ -85,7 +117,6 @@ if(process.env.PORT){
 app.listen(PORT, () => {
     console.log('listening....');
 });
-
 
 mongoose.connect('mongodb+srv://Acapace:!Acura123456@cluster0.cldlibi.mongodb.net/?retryWrites=true&w=majority', () =>{
     console.log('connected to mongo');

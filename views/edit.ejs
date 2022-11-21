@@ -5,7 +5,21 @@
      <title>Document</title>
 </head>
 <body>
-    <h1>Edit Page</h1>
-    
+    <div class="container">
+        <h1>Edit Inventory Page</h1>
+        <form action="/projectmgt/<%tasks.id%>?_method=PUT" method="POST">
+
+            Task -or- Item:             <input type="text" name="task_or_item" value="<%=tasks.task_or_item%>"/><br/>
+            Work Done By -or- Vendor:   <input type="text" name="work_done_by_or_vendor" value="<%=tasks.work_done_by_or_vendor%>"/><br/>
+            Cost:                       <input type="text" name="cost" value="<%=tasks.cost%>"/><br/>
+            Time Frame:                 <input type="text" name="time_frame" value="<%=tasks.time_frame%>"/><br/>
+            Description:                <input type="text" name="description" value="<%=tasks.description%>"/><br/>
+            Bought:                     <input type="checkbox" name="readyForTask" /><br/>
+            Installed:                  <input type="checkbox" name="readyForTask" /><br/>
+                                        <input type="submit" value="Submit" />
+
+        </form>
+
+    </div>
 </body>
 </html>

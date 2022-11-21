@@ -7,7 +7,22 @@
 <body>
     <div class="container">
         <h1>Project-Car Invetory Page</h1>
-  
+        <ul>
+            <% for(let i = 0; i < tasks.length; i++) { %>
+                <li>
+                    <a href="/projectmgt/<%tasks[i].id%>">
+                    <%=tasks[i].tasks; %>
+                </a>
+                <form action="/projectmgt/<%=tasks[i].id%>?_method=DELETE" method="POST">
+                <input type="submit" value="delete"/>
+            </form>
+            <a href="/projectmgt/<%=tasks[i].id%>/edit">Edit Task</a>
+                </li>
+            <% } %>
+        </ul>
+        <nav>
+            <a class="button" href="/projectmgt/new">Create a New Task</a>
+        </nav>
     </div>
 </body>
 </html>
