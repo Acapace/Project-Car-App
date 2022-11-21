@@ -52,21 +52,9 @@ app.get('/projectmgt/new', (req, res) =>{
 });
 
 
-///////SHOW ROUTE///DYNAMIC ROUTE//////
 
 
-app.get('/projectmgt/:id', (req, res) => {
-    Projectmgt.findById(req, params.id, (error, foundTask) => {
-        res.render('show.ejs', {
-            tasks:foundTask
-        });
-    });
-});
 
-
-// app.get('/projectmgt/show', (req, res) =>{ 
-//     res.render('show.ejs');
-// });
 
 
 
