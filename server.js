@@ -16,6 +16,8 @@ app.use(methodOverride('_method'));
 //     res.send('hello world');
 // });
 
+
+
 /////EDIT ROUTE////SECOND PART/////
 
 // app.put('projectmgt/:id', (req, res) => {
@@ -80,7 +82,7 @@ app.get('/projectmgt', (req, res) =>{
     Projectmgt.find({}, (error, alltasks) =>{
         console.log(alltasks);
         res.render('index.ejs', {
-            tasks: alltasks
+            data: alltasks
         });
     });
 });
@@ -88,18 +90,24 @@ app.get('/projectmgt', (req, res) =>{
 
 
 
-/////////POST 
+/////////POST ROUTE////BOUGHT CHECKBOX///INSTALLED CHECKBOX/////////
 
 app.post('/projectmgt', (req, res) => {
-    if(req.body.bought === "on") {
-        req.body.bought = true;
+    //////if checkbox is checked
+    if(req.body.itemBought === "on") {
+        req.body.itemBought = true;
     } else {
-        req.body.bought = false;
-    }
+        req.body.itemBought = false;
+    };
+    if(req.body.taskDone === "on") {
+        req.body.taskDone = true;
+    } else {
+        req.body.taskDone = false;
+    };
     Projectmgt.create(req.body, (error, createdTask) =>{
         res.redirect('/projectmgt');
-    })
-})
+    });
+});
 
 
 

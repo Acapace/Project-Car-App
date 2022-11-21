@@ -8,14 +8,14 @@
     <div class="container">
         <h1>New Inventory Page</h1>
         <form action="/projectmgt" method="POST">
-            Task -or- Item:             <input type="text" name="name"/><br/>
-            Work Done By -or- Vendor:   <input type="text" name="amount"/><br/>
-            Cost:                       <input type="text" name="Cost"/><br/>
-            Time Frame:                 <input type="text" name="description"/><br/>
+            Task -or- Item:             <input type="text" name="task_or_item"/><br/>
+            Work Done By -or- Vendor:   <input type="text" name="work_done_by_or_vendor"/><br/>
+            Cost:                       <input type="text" name="cost"/><br/>
+            Time Frame:                 <input type="text" name="time_frame"/><br/>
             Description:                <input type="text" name="description"/><br/>
-            Bought:                     <input type="checkbox" name="readyToEat" /><br/>
-            Installed:                  <input type="checkbox" name="readyToEat" /><br/>
-            <input type="submit" value="Submit" />
+            Bought:                     <input type="checkbox" name="itemBought" /><br/>
+            Installed:                  <input type="checkbox" name="tasksDone" /><br/>
+                                        <input type="submit" value="Submit" />
         </form>
     </div>
 </body>
