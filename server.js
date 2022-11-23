@@ -12,9 +12,9 @@ app.use(methodOverride('_method'));
 
 
 //////MAIN PAGE ROUTE
-// app.get('/', (req, res) =>{
-//     res.send('hello world');
-// });
+app.get('/', (req, res) =>{
+    res.send('hello world');
+});
 
 
 /////EDIT ROUTE////SECOND PART/////
@@ -82,14 +82,14 @@ app.get('/projectmgt/:id', (req, res) => {
 app.post('/projectmgt', (req, res) => {
     //////if checkbox is checked
     if(req.body.bought === "on") {
-        req.body.itemBought = true;
+        req.body.bought = true;
     } else {
-        req.body.itemBought = false;
+        req.body.bought = false;
     };
-    if(req.body.taskDone === "on") {
-        req.body.taskDone = true;
+    if(req.body.installed === "on") {
+        req.body.installed = true;
     } else {
-        req.body.taskDone = false;
+        req.body.installed = false;
     };
     Projectmgt.create(req.body, (error, createdTask) =>{
         res.redirect('/projectmgt');
@@ -97,7 +97,7 @@ app.post('/projectmgt', (req, res) => {
 });
 
 
-//////INDEX ROUTE///MAIN PAGE///////
+//////INDEX ROUTE///////
 
 app.get('/projectmgt', (req, res) =>{
     Projectmgt.find({}, (error, alltasks) =>{

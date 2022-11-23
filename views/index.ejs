@@ -26,6 +26,7 @@
                     <th>Time Frame (Days)</th>
                     <th>Description</th>
                     <th>Bought</th>
+                    <th>Installed or Complete</th>
                     <th>Action</th>
                 </tr>
                 <tr>
@@ -38,7 +39,8 @@
             <td> <%=data[i].cost; %></td>
             <td> <%=data[i].time_frame; %></td>
             <td> <%=data[i].description; %></td>
-            <td><%=data[i].bought; %></td>
+            <td> <%=data[i].bought; %></td>
+            <td> <%=data[i].installed; %></td>
             <td>
             <a href="/projectmgt/<%=data[i].id%>/edit">Edit</a>
             <form action="/projectmgt/<%=data[i].id%>?_method=DELETE" method="POST">
