@@ -17,28 +17,34 @@ app.use(methodOverride('_method'));
 // });
 
 
-
 /////EDIT ROUTE////SECOND PART/////
 
-// app.put('projectmgt/:id', (req, res) => {
-//     if(req.body.bought ===)
-// })
-
+app.put('/projectmgt/:id', (req, res) => {
+    if(req.body.bought === "on"){
+        req.body.bought = true;
+    } else {
+        req.body.bought = false;
+    };
+    if (req.body.installed === "on") {
+        req.body.installed = true;
+    } else {
+        req.body.installed = false;
+    }
+    Projectmgt.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
+        res.redirect('/projectmgt')
+    });
+});
 
 
 /////EDIT ROUTE//////
 
-app.get('projectmgt/:id/edit', (req, res) =>{
+app.get('/projectmgt/:id/edit', (req, res) =>{
     Projectmgt.findById(req.params.id, (err, foundTask)=>{
         res.render('edit.ejs',{
-            tasks: foundTask
+            data: foundTask
         });
-    });
+    });    
 });
-
-// app.get('/projectmgt/edit', (req, res) => {
-//     res.render('edit.ejs');
-// });
 
 
 ///////DELETE ROUTE//////////
@@ -58,43 +64,24 @@ app.get('/projectmgt/new', (req, res) =>{
 });
 
 
-
 ///////SHOW ROUTE///DYNAMIC ROUTE//////
 
 
 app.get('/projectmgt/:id', (req, res) => {
-    Projectmgt.findById(req, params.id, (error, foundTask) => {
-        res.render('show.ejs', {
-            tasks:foundTask
+    Projectmgt.findById(req.params.id, (error, foundTask) => {
+        res.render('show.ejs', 
+        {
+            data:foundTask
         });
     });
 });
-
-
-// app.get('/projectmgt/show', (req, res) =>{ 
-//     res.render('show.ejs');
-// });
-
-
-//////INDEX ROUTE///MAIN PAGE///////
-
-app.get('/projectmgt', (req, res) =>{
-    Projectmgt.find({}, (error, alltasks) =>{
-        console.log(alltasks);
-        res.render('index.ejs', {
-            data: alltasks
-        });
-    });
-});
-
-
 
 
 /////////POST ROUTE////BOUGHT CHECKBOX///INSTALLED CHECKBOX/////////
 
 app.post('/projectmgt', (req, res) => {
     //////if checkbox is checked
-    if(req.body.itemBought === "on") {
+    if(req.body.bought === "on") {
         req.body.itemBought = true;
     } else {
         req.body.itemBought = false;
@@ -108,6 +95,18 @@ app.post('/projectmgt', (req, res) => {
         res.redirect('/projectmgt');
     });
 });
+
+
+//////INDEX ROUTE///MAIN PAGE///////
+
+app.get('/projectmgt', (req, res) =>{
+    Projectmgt.find({}, (error, alltasks) =>{
+        res.render('index.ejs', {
+            data: alltasks
+        });
+    });
+});
+
 
 
 
