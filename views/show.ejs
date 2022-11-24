@@ -7,16 +7,41 @@
 <body>
     <div class="container">
     <h1>Show Page</h1>
-    <table>
-        <tr>
-            <th >Task -or- Item</th>
-            <th>Work done by -or- Vendor</th>
-            <th>Cost</th>
-            <th>Time Frame</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-    </table>
+    
+    <table styles="width:100%;">
+        <% for(let i = 0; i < data.length; i++) { %>
+           <tr>
+               <th >Task -or- Item</th>
+               <th>Work done by -or- Vendor</th>
+               <th>Cost $</th>
+               <th>Time Frame (Days)</th>
+               <th>Description</th>
+               <th>Bought</th>
+               <th>Installed or Complete</th>
+               <th>Action</th>
+           </tr>
+           <tr>
+           <td>
+               <a href="/projectmgt/<%=data[i].id%>">
+               <%=data[i].task_or_item; %>
+           </a>
+       </td>
+       <td> <%=data[i].work_done_by_or_vendor; %></td>
+       <td> <%=data[i].cost; %></td>
+       <td> <%=data[i].time_frame; %></td>
+       <td> <%=data[i].description; %></td>
+       <td> <%=data[i].bought; %></td>
+       <td> <%=data[i].installed; %></td>
+       <td>
+       <a href="/projectmgt/<%=data[i].id%>/edit">Edit</a>
+       <form action="/projectmgt/<%=data[i].id%>?_method=DELETE" method="POST">
+           <input type="submit" value="delete"/>
+       </form>
+        </td>
+       </tr>
+
+       <% } %>
+   </table>
     
     </div>
     <nav>
