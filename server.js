@@ -12,9 +12,9 @@ app.use(methodOverride('_method'));
 
 
 //////MAIN PAGE ROUTE
-// app.get('/', (req, res) =>{
-//     res.send('hello world');
-// });
+app.get('/', (req, res) =>{
+    res.send('index.ejs');
+});
 
 
 /////EDIT ROUTE////SECOND PART/////
