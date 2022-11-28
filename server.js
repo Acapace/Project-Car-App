@@ -12,9 +12,20 @@ app.use(methodOverride('_method'));
 
 
 // //////MAIN PAGE ROUTE
-// app.get('/', (req, res) =>{
-//     res.send('index.ejs');
-// });
+app.get('/', (req, res) =>{
+    res.send('index.ejs');
+});
+
+
+//////INDEX ROUTE///////
+
+app.get('/projectmgt', (req, res) =>{
+    Projectmgt.find({}, (error, alltasks) =>{
+        res.render('index.ejs', {
+            data: alltasks
+        });
+    });
+});
 
 
 /////EDIT ROUTE////SECOND PART/////
@@ -31,7 +42,7 @@ app.put('/projectmgt/:id', (req, res) => {
         req.body.installed = false;
     }
     Projectmgt.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
-        res.redirect('/projectmgt')
+        res.redirect('/')
     });
 });
 
@@ -97,15 +108,6 @@ app.post('/projectmgt', (req, res) => {
 });
 
 
-//////INDEX ROUTE///////
-
-app.get('/', (req, res) =>{
-    Projectmgt.find({}, (error, alltasks) =>{
-        res.render('index.ejs', {
-            data: alltasks
-        });
-    });
-});
 
 
 
