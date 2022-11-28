@@ -99,7 +99,7 @@ app.post('/projectmgt', (req, res) => {
 
 //////INDEX ROUTE///////
 
-app.get('/projectmgt', (req, res) =>{
+app.get('/', (req, res) =>{
     Projectmgt.find({}, (error, alltasks) =>{
         res.render('index.ejs', {
             data: alltasks

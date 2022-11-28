@@ -62,29 +62,51 @@
 
 <main class="container">
         <h1>Edit Inventory Page</h1>
-        <form action="/projectmgt/<%=data.id%>?_method=PUT" method="POST">
 
-            Task -or- Item:     <input type="text" name="task_or_item" value="<%=data.task_or_item%>"/><br/>
-            Work Done By -or- Vendor: <input type="text" name="work_done_by_or_vendor" value="<%=data.work_done_by_or_vendor%>"/><br/>
-            Cost:               <input type="text" name="cost" value="<%=data.cost%>"/><br/>
-            Time Frame:         <input type="text" name="time_frame" value="<%=data.time_frame%>"/><br/>
-            Description:        <input type="text" name="description" value="<%=data.description%>"/><br/>
-            Bought: <input type="checkbox" name="bought"
-                <% if(data.bought === true) { %>
-                    checked
-                <% } %>
-                    />
-                <br/>
-            Installed: <input type="checkbox" name="installed" 
-                <% if(data.installed === true) { %>
-                    checked
-                <% } %>
-                    />
-                <br/>
-                <input type="submit" value="Submit Changes" />
-        </form>
+ <!-- FORM: TO EDIT INVENTORY -->
 
-    
+ <form action="/projectmgt/<%=data.id%>?_method=PUT" method="POST">
+    <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label" > Task -or- Item:</label>
+            <input type="text" name="task_or_item"class="form-control" id="formGroupExampleInput" value="<%=data.task_or_item%>"/>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label" >Work Done By -or- Vendor: </label>
+            <input type="text" name="work_done_by_or_vendor" class="form-control" id="formGroupExampleInput2" value="<%=data.work_done_by_or_vendor%>"/>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label" >Cost $:</label>
+            <input type="text" name="cost" class="form-control" id="formGroupExampleInput2"  value="<%=data.cost%>"/>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label" >Time Frame:</label>
+            <input type="text" name="time_frame" class="form-control" id="formGroupExampleInput2" value="<%=data.time_frame%>"/>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Description:</label>
+            <input type="text"  name="description" class="form-control" id="formGroupExampleInput2" value="<%=data.description%>"/>
+          </div>
+          
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+            <% if(data.bought === true) { %>
+                checked
+            <% } %>
+                />
+            <label class="form-check-label" for="flexSwitchCheckDefault">Purchased</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+            <% if(data.installed === true) { %>
+                checked
+            <% } %>
+                />
+            <label class="form-check-label" for="flexSwitchCheckDefault">Installed</label>
+          </div>
+          <input type="submit" value="Update" class="btn btn-outline-dark"></br> 
+        
+    </form>
+</div>  
 </main>
 </body>
 </html>
