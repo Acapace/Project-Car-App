@@ -42,7 +42,7 @@ app.put('/projectmgt/:id', (req, res) => {
         req.body.installed = false;
     }
     Projectmgt.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
-        res.redirect('/')
+        res.redirect('/projectmgt')
     });
 });
 
@@ -73,6 +73,13 @@ app.delete('/projectmgt/:id', (req, res) => {
 app.get('/projectmgt/new', (req, res) =>{
     res.render('new.ejs');
 });
+
+
+/////// PROJECT PAGE ROUTE///STATIC ROUTE///////
+app.get('/projectmgt/pp', (req, res) =>{
+    res.render('projectpage.ejs');
+});
+
 
 
 ///////SHOW ROUTE///DYNAMIC ROUTE//////
