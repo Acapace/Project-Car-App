@@ -7,34 +7,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   
+  <style> 
+  .center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  </style>
 </head>
 <body>
 
 <!-- TOP NAVBAR -->
-    <!-- <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">ProjectMGT</span>
-        </div>
-      </nav> -->
+
 
       <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">ProjectMGT</a>
+          <a class="navbar-brand" href="/projectmgt">ProjectCAR</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PROJECT CAR</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="/projectmgt">HOME</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/projectmgt/pp">PROJECTS</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,22 +75,20 @@
           <div class="carousel-item active">
             <img src="images/white.jpeg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h1>PROJECT MGT</h1>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5><p>"All of those cars were once just a dream in somebody's head."</p></h5>
             </div>
           </div>
           <div class="carousel-item">
             <img src="images/gtr.jpeg"  class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>"Be a Beast. Drive a Beast."</h5>
             </div>
           </div>
           <div class="carousel-item">
             <img src="images/supra.jpeg"  class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              <h5>"Stright roads are for fast cars, turns are for fast drivers"</h5>
+
             </div>
           </div>
         </div>
@@ -101,6 +102,15 @@
         </button>
       </div>
 
+
+    <div class="center">
+     <h1> Let's Build Your Project Car : </h1>
+     </div>
+
+<!-- CREATE LINK TO NEW PAGE -->
+<nav class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-warning" href="/projectmgt/new">Add a New Task/Iteam</a>
+</nav>
 
 
 <!--CARDS START -->
@@ -121,10 +131,7 @@
     </div>
 
       
-<!-- CREATE LINK TO NEW PAGE -->
-        <nav class="d-grid gap-2 col-6 mx-auto">
-            <a class="btn btn-warning" href="/projectmgt/new">Add a New Task/Iteam</a>
-        </nav>
-    
+
+</div>   
 </body>
 </html>
