@@ -13,6 +13,8 @@
 
 <body>
     <div class="container">
+
+        
 <header class="py-5">
 
     <!-- TOP NAVBAR -->
@@ -87,24 +89,23 @@
             <input type="text"  name="description" class="form-control" id="formGroupExampleInput2" value="<%=data.description%>"/>
           </div>
           
+          Purchased: <input type="checkbox" name="bought"
+          <% if(data.bought === true) { %>
+              checked
+          <% } %>
+              />
+          <br/>
+      Installed: <input type="checkbox" name="installed" 
+          <% if(data.installed === true) { %>
+              checked
+          <% } %>
+              />
+          <br/>
+      
 
 <!-- CHECKBOX/SWITCH -->
 
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
-            <% if(data.bought === true) { %>
-                checked
-            <% } %>
-                />
-            <label class="form-check-label" for="flexSwitchCheckDefault">Purchased</label>
-          </div>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
-            <% if(data.installed === true) { %>
-                checked
-            <% } %>
-                />
-            <label class="form-check-label" for="flexSwitchCheckDefault">Installed</label>
+         
           </div>
           <input type="submit" value="Update" class="btn btn-outline-dark"></br> 
         
@@ -113,3 +114,5 @@
 </main>
 </body>
 </html>
+
+

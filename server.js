@@ -31,6 +31,7 @@ app.get('/projectmgt', (req, res) =>{
 /////EDIT ROUTE////SECOND PART/////
 
 app.put('/projectmgt/:id', (req, res) => {
+    console.log(`HERE: ${JSON.stringify(req.body)}`)
     if(req.body.bought === "on"){
         req.body.bought = true;
     } else {
@@ -79,7 +80,6 @@ app.get('/projectmgt/new', (req, res) =>{
 app.get('/projectmgt/pp', (req, res) =>{
     res.render('projectpage.ejs');
 });
-
 
 
 ///////SHOW ROUTE///DYNAMIC ROUTE//////
